@@ -77,8 +77,9 @@ public class Menu {
                 
                 try {
 
-                    int tamañoVector = Integer.parseInt(JOptionPane.showInputDialog("Digite el  "
-                        + "tamaño del vector: "));
+                    int tamañoVector = Integer.parseInt
+                            (JOptionPane.showInputDialog("Digite el  "
+                                + "tamaño del vector: "));
 
                     String res3 = e.llenarVector(tamañoVector);
 
@@ -89,7 +90,8 @@ public class Menu {
 
                     } else {
 
-                        JOptionPane.showMessageDialog(null, res3);
+                        JOptionPane.showMessageDialog(null, 
+                                res3);
 
                     }
                 } catch (NumberFormatException ex) {
@@ -102,7 +104,33 @@ public class Menu {
             break;
 
             case 4:
+                
+                try {
 
+                    int cantididadNumeros = Integer.parseInt
+                        (JOptionPane.showInputDialog("Digite la "
+                                + "cantidad de numeros: "));
+
+                    int res4 = e.sumarNumeros(cantididadNumeros);
+
+                    if (res4 == -1) {
+
+                        JOptionPane.showMessageDialog(null,
+                            "Error en la cantidad de numeros!!");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, 
+                                "La suma de los numeros es: " + res4);
+
+                    }
+                } catch (NumberFormatException ex) {
+
+                    JOptionPane.showMessageDialog(null, "Error, "
+                        + "debe ser un número");
+
+                }
+                
                 break;
 
             case 5:
