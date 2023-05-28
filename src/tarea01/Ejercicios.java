@@ -182,4 +182,76 @@ public class Ejercicios {
             
         } 
     }
+    
+    //////////  FIN  //////////
+    
+    //////////  EJERCICIO NÚMERO 5 //////////
+    
+    public String tablasMultiplicar(int tabla){
+        
+        if (tabla <= 0){
+            
+            return "false";
+        
+        }else{
+            
+            return tablasMultiplicarR(tabla,0,0,"");
+        
+        }
+    }
+    
+    private String tablasMultiplicarR(int tabla, int indice, int resultado, String tablaCompleta){
+        
+        if (indice > 10){
+            
+            return tablaCompleta;
+        
+        }else{
+            
+            resultado = tabla * indice;
+            
+            tablaCompleta += tabla + " * " + indice + " = " + resultado + "\n";
+            
+            return tablasMultiplicarR(tabla, indice + 1, 0, tablaCompleta);
+
+        }
+    }
+    
+    //////////  FIN  //////////
+    
+    //////////  EJERCICIO NÚMERO 6 //////////
+    
+    public int sumarCifrasNumero(int numeroSumar, String numeroString){
+        
+        if (numeroSumar < 0){
+            
+            return -1;
+        
+        }else{
+            
+            numeroString = String.valueOf(numeroSumar);
+            
+            return sumarCifrasNumeroR(numeroString,0,0,0);
+
+        }
+    }
+    
+    private int sumarCifrasNumeroR(String numeroString, int indice, int sumaTotal, int valor){
+        
+        if (indice >= numeroString.length()){
+            
+            return sumaTotal;
+        
+        }else{
+            
+            valor = Integer.parseInt(String.valueOf(numeroString.charAt(indice)));
+            
+            sumaTotal += valor;
+            
+            return sumarCifrasNumeroR(numeroString, indice + 1, sumaTotal,0);
+        
+        }
+    }
+    
+    
 }

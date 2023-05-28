@@ -134,11 +134,63 @@ public class Menu {
                 break;
 
             case 5:
+                
+                try {
+
+                    int tabla = Integer.parseInt
+                        (JOptionPane.showInputDialog("Digite la "
+                                + "tabla de multiplicar: "));
+
+                    String res5 = e.tablasMultiplicar(tabla);
+
+                    if (res5.equals("false")) {
+
+                        JOptionPane.showMessageDialog(null,
+                            "Error en el numero de la tabla!!");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, 
+                                "la tabla del:  " + tabla + " es: \n\n" + res5);
+
+                    }
+                } catch (NumberFormatException ex) {
+
+                    JOptionPane.showMessageDialog(null, "Error, "
+                        + "debe ser un número");
+
+                }
 
                 break;
 
             case 6:
+                
+                try {
 
+                    int numeroSumar = Integer.parseInt
+                        (JOptionPane.showInputDialog("Digite la "
+                                + "tabla de multiplicar: "));
+
+                    int res6 = e.sumarCifrasNumero(numeroSumar,"");
+
+                    if (res6 == -1) {
+
+                        JOptionPane.showMessageDialog(null,
+                            "Error en numero para sumar sus cifras, debe ser positivo!!");
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(null, 
+                                "La suma de las cifras del numero: " + numeroSumar + "   es:   " + res6);
+
+                    }
+                } catch (NumberFormatException ex) {
+
+                    JOptionPane.showMessageDialog(null, "Error, "
+                        + "debe ser un número");
+
+                }
+                
                 break;
 
             default:
