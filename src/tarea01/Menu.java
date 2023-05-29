@@ -5,197 +5,225 @@ import javax.swing.JOptionPane;
 public class Menu {
 
     public void mostrarMenu() {
+        
+        
         Ejercicios e = new Ejercicios();
+        
+        int respuesta = 0;
+        
+        while (respuesta != 7){
 
-        int respuesta = Integer.parseInt(
-                JOptionPane.showInputDialog("""
+            respuesta = Integer.parseInt(
+                    JOptionPane.showInputDialog("""
                                             Menú\n
                                             1.   Problema 1 
                                             2.   Problema 2 
                                             3.   Problema 3 
                                             4.   Problema 4 
                                             5.   Problema 5 
-                                            6.   Problema 6\n
+                                            6.   Problema 6
+                                            7.   Salir\n
                                             Digite una opcion:
                                             """));
 
-        switch (respuesta) {
-            case 1:
+            switch (respuesta) {
                 
-                try {
+                case 1:
+                
+                    try {
 
-                    int numeroInvertir = Integer.parseInt
+                        int numeroInvertir = Integer.parseInt
                             (JOptionPane.showInputDialog("Digite el numero "
-                                    + "a invertir: "));
+                            + "a invertir: "));
 
-                    int res1 = e.invertirCifras(numeroInvertir);
+                        int res1 = e.invertirCifras(numeroInvertir);
 
-                    if (res1 == -1) {
-                    
-                        JOptionPane.showMessageDialog(null,
-                            "El número es negativo!!");
+                        if (res1 == -1) {
 
-                    } else {
-                    
-                        JOptionPane.showMessageDialog(null,
-                            "Número a invertir: " + numeroInvertir + "   ->   "
-                            + "Número invertido: " + res1);
-                    
+                            JOptionPane.showMessageDialog(null,
+                                "El número no puede ser negativo!!");
+
+                        } else {
+
+                            JOptionPane.showMessageDialog(null,
+                                "Número a invertir: " + numeroInvertir 
+                                + "   ->   "
+                                + "Número invertido: " + res1);
+
+                        }
+
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(null, "Error,"
+                            + " debe ser un número");
+
                     }
-                
-                } catch (NumberFormatException ex) {
-                
-                    JOptionPane.showMessageDialog(null, "Error, "
-                        + "debe ser un número");
-                
-            }
 
-            break;
+                break;
 
-            case 2:
+                case 2:
 
-                String cadena = JOptionPane.showInputDialog("Digite la "
-                                    + "cadena a escribir: ");
+                    String cadena = JOptionPane.showInputDialog("Digite la "
+                            + "cadena a escribir: ");
 
-                String res2 = e.imprimirString(cadena);
+                    String res2 = e.imprimirString(cadena);
 
-                if (res2.equals("false")) {
-                    
-                    JOptionPane.showMessageDialog(null,
+                    if (res2.equals("false")) {
+
+                        JOptionPane.showMessageDialog(null,
                             "No digitó ningun caracter!!");
 
-                } else {
-                    
-                    JOptionPane.showMessageDialog(null,
-                            "Cadena letra por letra:\n\n" + res2);
-                    
-                }
-
-                break;
-
-            case 3:
-                
-                try {
-
-                    int tamañoVector = Integer.parseInt
-                            (JOptionPane.showInputDialog("Digite el  "
-                                + "tamaño del vector: "));
-
-                    String res3 = e.llenarVector(tamañoVector);
-
-                    if (res3.equals("flase")) {
-
-                        JOptionPane.showMessageDialog(null,
-                            "Error en el tamaño del vector!!");
-
                     } else {
 
-                        JOptionPane.showMessageDialog(null, 
+                        JOptionPane.showMessageDialog(null,
+                            "Cadena letra por letra:\n\n" + res2);
+
+                    }
+
+                    break;
+
+                case 3:
+                
+                    try {
+
+                        int tamañoVector = Integer.parseInt
+                            (JOptionPane.showInputDialog("Digite el  "
+                            + "tamaño del vector: "));
+
+                        String res3 = e.llenarVector(tamañoVector);
+
+                        if (res3.equals("false")) {
+
+                            JOptionPane.showMessageDialog(null,
+                                "Error en el tamaño del vector!!");
+
+                        } else {
+
+                            JOptionPane.showMessageDialog(null,
                                 res3);
 
+                        }
+                    
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(null, "Error,"
+                            + " debe ser un número");
+
                     }
-                } catch (NumberFormatException ex) {
 
-                    JOptionPane.showMessageDialog(null, "Error, "
-                        + "debe ser un número");
+                break;
 
-            }
-
-            break;
-
-            case 4:
+                case 4:
                 
-                try {
+                    try {
 
-                    int cantididadNumeros = Integer.parseInt
-                        (JOptionPane.showInputDialog("Digite la "
-                                + "cantidad de numeros: "));
+                        int cantididadNumeros = Integer.parseInt
+                            (JOptionPane.showInputDialog("Digite la "
+                            + "cantidad de numeros a sumar: "));
 
-                    int res4 = e.sumarNumeros(cantididadNumeros);
+                        int res4 = e.sumarNumeros
+                            (cantididadNumeros);
 
-                    if (res4 == -1) {
+                        if (res4 == -1) {
 
-                        JOptionPane.showMessageDialog(null,
-                            "Error en la cantidad de numeros!!");
+                            JOptionPane.showMessageDialog(null,
+                                "Error en la cantidad de numeros!!");
 
-                    } else {
+                        } else {
 
-                        JOptionPane.showMessageDialog(null, 
+                            JOptionPane.showMessageDialog(null,
                                 "La suma de los numeros es: " + res4);
 
+                        }
+                        
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(null, "Error,"
+                            + " debe ser un número");
+
                     }
-                } catch (NumberFormatException ex) {
 
-                    JOptionPane.showMessageDialog(null, "Error, "
-                        + "debe ser un número");
-
-                }
-                
                 break;
 
-            case 5:
+                case 5:
                 
-                try {
+                    try {
 
-                    int tabla = Integer.parseInt
-                        (JOptionPane.showInputDialog("Digite la "
-                                + "tabla de multiplicar: "));
+                        int tabla = Integer.parseInt
+                            (JOptionPane.showInputDialog("Digite la "
+                            + "tabla de multiplicar: "));
 
-                    String res5 = e.tablasMultiplicar(tabla);
+                        String res5 = e.tablasMultiplicar(tabla);
 
-                    if (res5.equals("false")) {
+                        if (res5.equals("false")) {
 
-                        JOptionPane.showMessageDialog(null,
-                            "Error en el numero de la tabla!!");
+                            JOptionPane.showMessageDialog(null,
+                                "Error en el numero de la tabla, "
+                                + "debe ser positivo!!");
 
-                    } else {
+                        } else {
 
-                        JOptionPane.showMessageDialog(null, 
+                            JOptionPane.showMessageDialog(null,
                                 "la tabla del:  " + tabla + " es: \n\n" + res5);
 
+                        }
+                        
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(null, "Error,"
+                            + " debe ser un número");
+
                     }
-                } catch (NumberFormatException ex) {
-
-                    JOptionPane.showMessageDialog(null, "Error, "
-                        + "debe ser un número");
-
-                }
 
                 break;
 
-            case 6:
+                case 6:
                 
-                try {
+                    try {
 
-                    int numeroSumar = Integer.parseInt
-                        (JOptionPane.showInputDialog("Digite la "
-                                + "tabla de multiplicar: "));
+                        int numeroSumar = Integer.parseInt
+                            (JOptionPane.showInputDialog("Digite el "
+                            + "numero para sumar su cifras: "));
 
-                    int res6 = e.sumarCifrasNumero(numeroSumar,"");
+                        int res6 = e.sumarCifrasNumero
+                                     (numeroSumar, "");
 
-                    if (res6 == -1) {
+                        if (res6 == -1) {
 
-                        JOptionPane.showMessageDialog(null,
-                            "Error en numero para sumar sus cifras, debe ser positivo!!");
+                            JOptionPane.showMessageDialog(null,
+                                "Error en numero para sumar sus cifras, "
+                                + "debe ser positivo!!");
 
-                    } else {
+                        } else {
 
-                        JOptionPane.showMessageDialog(null, 
-                                "La suma de las cifras del numero: " + numeroSumar + "   es:   " + res6);
+                            JOptionPane.showMessageDialog(null,
+                                "La suma de las cifras del numero: " + 
+                                numeroSumar + "   es:   " + res6);
+
+                        }
+                        
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(null, "Error,"
+                            + " debe ser un número");
 
                     }
-                } catch (NumberFormatException ex) {
 
-                    JOptionPane.showMessageDialog(null, "Error, "
-                        + "debe ser un número");
-
-                }
-                
                 break;
+                
+                case 7:
+                    
+                    JOptionPane.showMessageDialog(null, 
+                            "Saliendo...");
+                    
+                    System.exit(0);
 
-            default:
+                default:
 
-                JOptionPane.showMessageDialog(null, "Error");
+                    JOptionPane.showMessageDialog(null,
+                            "Error, digite una opcion correcta!!");
+                    
+            }
         }
     }
 }
