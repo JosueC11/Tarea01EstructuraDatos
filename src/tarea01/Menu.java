@@ -16,12 +16,12 @@ public class Menu {
             respuesta = Integer.parseInt(
                     JOptionPane.showInputDialog("""
                                             Menú\n
-                                            1.   Problema 1 
-                                            2.   Problema 2 
-                                            3.   Problema 3 
-                                            4.   Problema 4 
-                                            5.   Problema 5 
-                                            6.   Problema 6
+                                            1.   Ejecutar Problema 1 
+                                            2.   Ejecutar Problema 2 
+                                            3.   Ejecutar Problema 3 
+                                            4.   Ejecutar Problema 4 
+                                            5.   Ejecutar Problema 5 
+                                            6.   Ejecutar Problema 6\n
                                             7.   Salir\n
                                             Digite una opcion:
                                             """));
