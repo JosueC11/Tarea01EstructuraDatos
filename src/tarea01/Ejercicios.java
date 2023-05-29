@@ -52,12 +52,13 @@ public class Ejercicios {
         
     }
 
-    private String imprimirStringR(String cadena, int indice, String nuevaCadena) {
+    private String imprimirStringR(String cadena, int indice, 
+            String nuevaCadena) {
         
         if (indice < cadena.length()) {
             
-            nuevaCadena += "C" + (indice + 1) + " = " + cadena.charAt(indice)
-                    + "\n";
+            nuevaCadena += "C" + (indice + 1) + " = " + cadena.charAt
+                        (indice) + "\n";
 
             return imprimirStringR(cadena, indice + 1, nuevaCadena);
             
@@ -121,7 +122,8 @@ public class Ejercicios {
         }
     }
 
-    private String mostrarVectorYDatos(int[] vec, int indice, String vecString, int mayor) {
+    private String mostrarVectorYDatos(int[] vec, int indice, String vecString, 
+            int mayor) {
         
         if (indice < vec.length) {
             
@@ -135,7 +137,8 @@ public class Ejercicios {
             
         } else {
             
-            return "El vector es: " + vecString + "\n\n" + "El mayor valor es:   " + mayor;
+            return "El vector es: " + vecString + "\n\n" 
+                    + "El mayor valor es:   " + mayor;
             
         }
 
@@ -153,32 +156,36 @@ public class Ejercicios {
 
         }else{
             
-            return sumarNumerosR(cantidadNumeros,0,0);
+            int [] vec = new int [cantidadNumeros];
+            
+            return sumarNumerosR(vec,0,0);
         
         } 
     }
     
-    private int sumarNumerosR(int cantidadNumeros, int resultado, int valor) {
+    private int sumarNumerosR(int [] vec, int resultado, int indice) {
 
-        if (cantidadNumeros == 0) {
-            
-            return resultado;
-
-        }else{
+        if (indice < vec.length) {
             
             try {
                 
-                valor = Integer.parseInt(JOptionPane.showInputDialog("Valor a sumar: "));
+                vec [indice] = Integer.parseInt
+                    (JOptionPane.showInputDialog("Valor a sumar: "));
                 
-                resultado += valor;
+                resultado += vec [indice];
                 
             }catch(NumberFormatException ex){
                 
-                JOptionPane.showMessageDialog(null,"Error, debe ser un numero!!");
+                JOptionPane.showMessageDialog(null,
+                        "Error, debe ser un numero!!");
                 
             }
             
-            return sumarNumerosR(cantidadNumeros - 1,resultado,0);
+            return sumarNumerosR(vec,resultado,indice + 1);
+
+        }else{
+
+            return resultado;
             
         } 
     }
@@ -200,7 +207,8 @@ public class Ejercicios {
         }
     }
     
-    private String tablasMultiplicarR(int tabla, int indice, int resultado, String tablaCompleta){
+    private String tablasMultiplicarR(int tabla, int indice, int resultado, 
+            String tablaCompleta){
         
         if (indice > 10){
             
@@ -212,7 +220,8 @@ public class Ejercicios {
             
             tablaCompleta += tabla + " * " + indice + " = " + resultado + "\n";
             
-            return tablasMultiplicarR(tabla, indice + 1, 0, tablaCompleta);
+            return tablasMultiplicarR(tabla, indice + 1, 0, 
+                                      tablaCompleta);
 
         }
     }
@@ -236,7 +245,8 @@ public class Ejercicios {
         }
     }
     
-    private int sumarCifrasNumeroR(String numeroString, int indice, int sumaTotal, int valor){
+    private int sumarCifrasNumeroR(String numeroString, int indice, 
+            int sumaTotal, int valor){
         
         if (indice >= numeroString.length()){
             
@@ -244,14 +254,14 @@ public class Ejercicios {
         
         }else{
             
-            valor = Integer.parseInt(String.valueOf(numeroString.charAt(indice)));
+            valor = Integer.parseInt(String.valueOf(numeroString.charAt
+                    (indice)));
             
             sumaTotal += valor;
             
-            return sumarCifrasNumeroR(numeroString, indice + 1, sumaTotal,0);
+            return sumarCifrasNumeroR(numeroString, indice + 1, 
+                    sumaTotal,0);
         
         }
-    }
-    
-    
+    } 
 }
